@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Home-Page";
+}
+
+<div>
+    @ViewBag.Message
+</div>
+@*/* Description of how thw system funxtions*/*@
+<div>
+    <h2>MyMedia</h2>
+   
+</div>
+
+<div class="row jumbotron">
+
+    <div class="col-md-8">
+        <h2>Description</h2>
+        <p>
+            This a media uploading system wich contains four  different sections, namely the Home page,
+            Files page, Images page, Videos page and we also have the About me.     
+            The home page has a form where the user needs to select whether they want to
+            upload a File, Image, or Video. The user wis then required to select the file on their computer which will
+            be uploaded on submit of the form.
+        </p>
+        <br><br>
+        <p>
+            The files page displays a list of all the Files that the user has uploaded with the
+            functionality to delete and download the file.
+            The images page displays all the images/photos that the user uploaded,
+            in an orderly way with the functionality to delete and download the images.
+            The videos page displays all the videos  that the user uploaded in an orderly way,
+            with the functionality to delete and download the videos. And the about me page displays
+            a biography along with a picture/image of me
+        </p>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Select option</h2>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+
+            @*/* Radio  buttons*/*@
+            <form>
+                <div class="form-group">
+                    @Html.RadioButton("FileType", "Document")<span>Documents</span><br>
+                </div>
+                <div class="form-group">
+                    @Html.RadioButton("FileType", "Image")<span>Images</span><br>
+                </div>
+                <div class="form-group form-check">
+                    @Html.RadioButton("FileType", "Video")<span>Video</span><br>
+                </div>
+                <div class="form-group form-check">
+                    <input type="file" name="file" id="file">
+                </div>
+
+
+                @*/* Submit button */*@
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        }
+    </div>
+
+</div>
